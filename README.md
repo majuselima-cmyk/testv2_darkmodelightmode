@@ -28,7 +28,7 @@ SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_ANON_KEY=your_anon_key_here
 SUPABASE_SERVICE_KEY=your_service_key_here
 API_TOKEN=abc321Xyz
-DEFAULT_ACCOUNT=270787386
+DEFAULT_ACCOUNT=206943771
 ```
 
 Ambil credentials dari Settings > API di Supabase Dashboard.
@@ -108,7 +108,7 @@ Pastikan semua kode sudah di-push ke repository GitHub kamu.
    | `SUPABASE_ANON_KEY` | `your_anon_key_here` | Production, Preview, Development |
    | `SUPABASE_SERVICE_KEY` | `your_service_key_here` | Production, Preview, Development |
    | `API_TOKEN` | `abc321Xyz` | Production, Preview, Development (opsional) |
-   | `DEFAULT_ACCOUNT` | `270787386` | Production, Preview, Development (opsional) |
+   | `DEFAULT_ACCOUNT` | `206943771` | Production, Preview, Development (opsional) |
 
 5. **WAJIB:** Centang semua environment (Production, Preview, Development)
 6. Klik **Save** untuk setiap variable

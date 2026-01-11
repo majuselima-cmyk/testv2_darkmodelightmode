@@ -198,7 +198,7 @@
 
 <script setup lang="ts">
 const config = useRuntimeConfig()
-const accountNumber = ref(config.defaultAccount || '270787386')
+const accountNumber = ref(config.defaultAccount || '206943771')
 const loading = ref(true)
 const error = ref('')
 const eaStatus = ref<string>('')

@@ -334,7 +334,7 @@
 const config = useRuntimeConfig()
 const ADMIN_PASSWORD = 'admin123'
 const apiToken = computed(() => config.apiToken || 'abc321Xyz')
-const defaultAccount = computed(() => config.defaultAccount || '270787386')
+const defaultAccount = computed(() => config.defaultAccount || '206943771')
 
 const isLoggedIn = ref(false)
 const password = ref('')

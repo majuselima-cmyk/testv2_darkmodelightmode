@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const account = (query.account as string) || config.defaultAccount || '270787386'
+  const account = (query.account as string) || config.defaultAccount || '206943771'
   const action = (query.action as string) || 'get'
 
   if (action !== 'get') {

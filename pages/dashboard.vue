@@ -293,7 +293,7 @@
 
 <script setup lang="ts">
 const config = useRuntimeConfig()
-const defaultAccount = ref(config.defaultAccount || '270787386')
+const defaultAccount = ref(config.defaultAccount || '206943771')
 const apiToken = computed(() => config.apiToken || 'abc321Xyz')
 const eaStatus = ref<string>('')
 const scheduleStatus = ref<Record<string, string>>({})

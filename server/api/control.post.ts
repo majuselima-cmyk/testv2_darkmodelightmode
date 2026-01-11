@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const account = (query.account as string) || (body.account as string) || config.defaultAccount || '270787386'
+  const account = (query.account as string) || (body.account as string) || config.defaultAccount || '206943771'
   const action = (query.action as string) || (body.action as string) || 'get'
   const schedule = ((query.schedule as string) || (body.schedule as string) || '').toUpperCase()
   const statusParam = ((query.status as string) || (body.status as string) || 'ON').toUpperCase()

@@ -60,13 +60,13 @@ Pastikan semua variables sudah di-set dengan benar:
 | `SUPABASE_ANON_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` | ✅ WAJIB |
 | `SUPABASE_SERVICE_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` | ⚠️ Opsional |
 | `API_TOKEN` | `abc321Xyz` | ⚠️ Opsional (default sudah ada) |
-| `DEFAULT_ACCOUNT` | `270787386` | ⚠️ Opsional (default sudah ada) |
+| `DEFAULT_ACCOUNT` | `206943771` | ⚠️ Opsional (default sudah ada) |
 
 ### 6. **Test API Langsung**
 
 Setelah redeploy, test API langsung:
 ```
-https://testv1-rho.vercel.app/api/control?token=abc321Xyz&account=270787386&action=get
+https://testv1-rho.vercel.app/api/control?token=abc321Xyz&account=206943771&action=get
 ```
 
 Jika masih error 500, cek Vercel function logs untuk detail error.

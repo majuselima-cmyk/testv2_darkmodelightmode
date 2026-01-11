@@ -182,7 +182,7 @@
 
 <script setup lang="ts">
 const config = useRuntimeConfig()
-const defaultAccount = ref(config.defaultAccount || '270787386')
+const defaultAccount = ref(config.defaultAccount || '206943771')
 const loading = ref(true)
 const activeLots = ref<Record<string, any>>({})
 const scheduleStatus = ref<Record<string, string>>({})

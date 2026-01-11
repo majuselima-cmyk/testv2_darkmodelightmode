@@ -3,7 +3,7 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const config = useRuntimeConfig()
   
-  const account = (query.account as string) || config.defaultAccount || '270787386'
+  const account = (query.account as string) || config.defaultAccount || '206943771'
   const filterDate = (query.date as string) || new Date().toISOString().split('T')[0]
   const filterSchedule = (query.schedule as string) || ''
   const page = Math.max(1, parseInt(query.page as string) || 1)
