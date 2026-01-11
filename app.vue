@@ -1,10 +1,13 @@
 <template>
-  <div>
+  <div :class="{ 'dark': isDark }">
     <NuxtPage />
   </div>
 </template>
 
 <script setup>
+// Initialize dark mode
+const { isDark } = useDarkMode()
+
 useHead({
   link: [
     {

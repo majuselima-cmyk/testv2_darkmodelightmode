@@ -1,22 +1,25 @@
 <template>
-  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 min-h-screen">
+  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-200">
     <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 shadow-sm sticky top-0 z-10">
+    <header class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm sticky top-0 z-10">
       <div class="max-w-6xl mx-auto px-4 py-4">
         <div class="flex items-center justify-between">
           <div>
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent flex items-center gap-3">
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent flex items-center gap-3">
               <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg">
                 <i class="fas fa-chart-line text-white text-sm"></i>
               </div>
               Dashboard
             </h1>
-            <p class="text-gray-500 text-sm mt-1">Trading System v10</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Trading System v10</p>
           </div>
-          <div class="text-right">
-            <div class="text-xs text-gray-500 font-medium">Account</div>
-            <div class="text-sm font-bold text-gray-900">{{ defaultAccount }}</div>
-            <div class="text-xs text-gray-400 mt-1" id="lastRefreshTime">-</div>
+          <div class="flex items-center gap-4">
+            <div class="text-right">
+              <div class="text-xs text-gray-500 dark:text-gray-400 font-medium">Account</div>
+              <div class="text-sm font-bold text-gray-900 dark:text-gray-100">{{ defaultAccount }}</div>
+              <div class="text-xs text-gray-400 dark:text-gray-500 mt-1" id="lastRefreshTime">-</div>
+            </div>
+            <ThemeToggle />
           </div>
         </div>
       </div>
@@ -388,6 +391,11 @@ onUnmounted(() => {
 .stat-card {
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .stat-card {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border: 1px solid rgba(55, 65, 81, 0.8);
 }
 
 .fade-in {
