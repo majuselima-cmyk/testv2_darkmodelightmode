@@ -1,0 +1,41 @@
+# Environment Variables untuk Vercel
+# Copy setiap variable ke Vercel Dashboard > Settings > Environment Variables
+# Pastikan semua environment (Production, Preview, Development) dicentang
+
+# ============================================
+# SUPABASE CONFIGURATION
+# ============================================
+
+# Supabase Project URL
+SUPABASE_URL=https://pyouwfkzmcyjhzrryvkh.supabase.co
+
+# Supabase Anon Public Key (Publishable API Key)
+SUPABASE_ANON_KEY=sb_publishable_uudkzBB90U3WkGDAES17lg_yuEworIX
+
+# Supabase Service Role Key (Opsional - untuk server-side operations)
+# TIDAK WAJIB untuk aplikasi ini karena semua API routes menggunakan anon key
+# Bisa dikosongkan atau diisi jika diperlukan untuk operasi admin di masa depan
+SUPABASE_SERVICE_KEY=
+
+# ============================================
+# API CONFIGURATION
+# ============================================
+
+# API Token untuk autentikasi API endpoints
+API_TOKEN=abc321Xyz
+
+# Default Trading Account Number
+DEFAULT_ACCOUNT=206943771
+
+# ============================================
+# CARA IMPORT KE VERCEL:
+# ============================================
+# 1. Buka Vercel Dashboard → Project → Settings → Environment Variables
+# 2. Untuk setiap variable di atas:
+#    - Klik "Add New"
+#    - Copy NAME dan VALUE (contoh: SUPABASE_URL dan https://pyouwfkzmcyjhzrryvkh.supabase.co)
+#    - Centang Production, Preview, Development
+#    - Klik Save
+# 3. Setelah semua variable di-set, REDEPLOY project:
+#    - Deployments → ... → Redeploy
+
