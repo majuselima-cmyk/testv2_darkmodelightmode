@@ -3,23 +3,23 @@
     <div class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
       <!-- Header -->
       <header class="mb-4 sm:mb-6">
-        <div class="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 shadow-lg p-3 sm:p-5 mb-4 sm:mb-6">
+        <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg p-3 sm:p-5 mb-4 sm:mb-6">
           <div class="flex flex-col gap-3">
             <div class="flex items-center gap-2 sm:gap-4">
-              <NuxtLink to="/dashboard" class="bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all shadow-sm">
+              <NuxtLink to="/dashboard" class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 text-gray-700 dark:text-gray-200 px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all shadow-sm">
                 <i class="fas fa-arrow-left text-xs"></i> Back
               </NuxtLink>
               <div class="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                 <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-md">
                   <i class="fas fa-chart-bar text-white text-xs sm:text-sm"></i>
                 </div>
-                <h1 class="text-lg sm:text-2xl font-bold text-black truncate">
+                <h1 class="text-lg sm:text-2xl font-bold text-black dark:text-white truncate">
                   Streak Report
                 </h1>
               </div>
             </div>
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
-              <p class="text-xs sm:text-sm text-gray-600">
+              <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 Analisis Streak Loss v10 (S1 - SX) - Account: <span class="font-mono font-semibold">{{ account }}</span> | Tanggal (UTC): <span class="font-semibold">{{ filterDate }}</span>
               </p>
               <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-600 dark:text-gray-400 shadow-sm">
@@ -29,7 +29,7 @@
               </div>
               <ThemeToggle />
             </div>
-            <p class="text-[11px] sm:text-xs text-gray-500 max-w-2xl">
+            <p class="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 max-w-2xl">
               Streak dihitung per schedule berdasarkan <span class="font-semibold">trade berurutan yang rugi (profit &lt; 0)</span>.
               Satu blok streak dengan panjang L akan dihitung sebagai: 
               <span class="font-mono">L</span> kalau 1 ≤ L ≤ 15,
@@ -40,14 +40,14 @@
       </header>
 
       <!-- Filter -->
-      <section class="mb-4 sm:mb-5 bg-white border border-gray-200 rounded-lg shadow-sm p-3 sm:p-4">
+      <section class="mb-4 sm:mb-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm p-3 sm:p-4">
         <form @submit.prevent="loadData" class="flex flex-wrap items-end gap-3">
           <div class="flex-1 min-w-[180px]">
-            <label class="block text-xs font-semibold text-gray-700 mb-1">Account</label>
+            <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">Account</label>
             <input 
               v-model="account" 
               type="text" 
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs sm:text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg text-xs sm:text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono"
             >
           </div>
           <div class="flex-1 min-w-[180px]">
@@ -55,7 +55,7 @@
             <input 
               v-model="filterDate" 
               type="date" 
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-xs sm:text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg text-xs sm:text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
           </div>
           <div class="flex items-center gap-2">
@@ -68,7 +68,7 @@
             <button
               type="button"
               @click="setToday"
-              class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg text-xs sm:text-sm font-semibold transition-all"
+              class="px-4 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-lg text-xs sm:text-sm font-semibold transition-all"
             >
               Hari Ini (Default)
             </button>
@@ -78,34 +78,34 @@
 
       <!-- Summary Cards -->
       <section class="mb-4 sm:mb-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div class="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 shadow-sm">
-          <div class="text-xs text-gray-600 mb-1">Total Posisi (hari ini)</div>
-          <div class="text-lg sm:text-xl font-bold text-gray-900">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 sm:p-4 shadow-sm">
+          <div class="text-xs text-gray-600 dark:text-gray-400 mb-1">Total Posisi (hari ini)</div>
+          <div class="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">
             {{ statistics.total_positions || 0 }}
           </div>
         </div>
-        <div class="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 shadow-sm">
-          <div class="text-xs text-gray-600 mb-1">Schedule Aktif (ada posisi)</div>
-          <div class="text-lg sm:text-xl font-bold text-gray-900">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 sm:p-4 shadow-sm">
+          <div class="text-xs text-gray-600 dark:text-gray-400 mb-1">Schedule Aktif (ada posisi)</div>
+          <div class="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">
             {{ statistics.active_schedules || 0 }}
           </div>
         </div>
-        <div class="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 shadow-sm">
-          <div class="text-xs text-gray-600 mb-1">Total Blok Streak ≥ 1</div>
-          <div class="text-lg sm:text-xl font-bold text-gray-900">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 sm:p-4 shadow-sm">
+          <div class="text-xs text-gray-600 dark:text-gray-400 mb-1">Total Blok Streak ≥ 1</div>
+          <div class="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">
             {{ statistics.total_blocks || 0 }}
           </div>
         </div>
-        <div class="bg-white border border-gray-200 rounded-lg p-3 sm:p-4 shadow-sm">
-          <div class="text-xs text-gray-600 mb-1">Rentang Streak</div>
-          <div class="text-sm font-semibold text-gray-900">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 sm:p-4 shadow-sm">
+          <div class="text-xs text-gray-600 dark:text-gray-400 mb-1">Rentang Streak</div>
+          <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">
             {{ minStreak }} &ndash; {{ maxStreak }} loss berurutan
           </div>
         </div>
       </section>
 
       <!-- Main Table: per schedule -->
-      <section class="mb-4 sm:mb-6 bg-white border border-gray-200 rounded-lg shadow-sm overflow-x-auto">
+      <section class="mb-4 sm:mb-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm overflow-x-auto">
           <div class="px-3 sm:px-4 py-2 sm:py-3 border-b border-gray-200">
             <h2 class="text-xs sm:text-sm md:text-base font-semibold text-gray-900">
               Tabel Streak Loss per Schedule (Panjang 1 &ndash; 15, exact length)

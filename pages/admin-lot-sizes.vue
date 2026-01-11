@@ -2,28 +2,28 @@
   <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-4 py-6">
       <!-- Header -->
-      <div class="bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg p-5 mb-6">
+      <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg p-5 mb-6">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
           <div>
             <div class="flex items-center gap-4 mb-3">
-              <NuxtLink to="/dashboard" class="bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 transition-all shadow-sm">
+              <NuxtLink to="/dashboard" class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 transition-all shadow-sm">
                 <i class="fas fa-arrow-left text-xs"></i> Back
               </NuxtLink>
-              <h1 class="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent flex items-center gap-3">
+              <h1 class="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-md">
                   <i class="fas fa-sliders-h text-white text-sm"></i>
                 </div>
                 Lot Sizes Management
               </h1>
             </div>
-            <p class="text-sm text-gray-600">Manage lot sizes untuk trading system</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Manage lot sizes untuk trading system</p>
           </div>
           <div v-if="isLoggedIn" class="flex items-center gap-3">
-            <div class="text-sm text-gray-600 bg-gradient-to-br from-gray-50 to-white px-3 py-2 rounded-xl border border-gray-200 shadow-sm flex items-center gap-2">
+            <div class="text-sm text-gray-600 dark:text-gray-400 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-600 shadow-sm flex items-center gap-2">
               <i class="fas fa-user-circle text-purple-600"></i>
               <span class="font-semibold">Admin</span>
             </div>
-            <button @click="logout" class="bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm flex items-center gap-2">
+            <button @click="logout" class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm flex items-center gap-2">
               <i class="fas fa-sign-out-alt text-xs"></i> Logout
             </button>
             <ThemeToggle />
@@ -32,21 +32,21 @@
 
         <!-- Stats -->
         <div class="grid grid-cols-4 gap-3">
-          <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-3 border border-blue-200">
-            <div class="text-xs text-blue-600 font-semibold uppercase tracking-wider mb-1">Total</div>
-            <div class="text-xl font-bold text-gray-900">{{ lotSizes.length }}</div>
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 rounded-xl p-3 border border-blue-200 dark:border-blue-700">
+            <div class="text-xs text-blue-600 dark:text-blue-400 font-semibold uppercase tracking-wider mb-1">Total</div>
+            <div class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ lotSizes.length }}</div>
           </div>
-          <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-3 border border-green-200">
-            <div class="text-xs text-green-600 font-semibold uppercase tracking-wider mb-1">Active</div>
-            <div class="text-xl font-bold text-gray-900">{{ activeCount }}</div>
+          <div class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 rounded-xl p-3 border border-green-200 dark:border-green-700">
+            <div class="text-xs text-green-600 dark:text-green-400 font-semibold uppercase tracking-wider mb-1">Active</div>
+            <div class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ activeCount }}</div>
           </div>
-          <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-3 border border-gray-200">
-            <div class="text-xs text-gray-600 font-semibold uppercase tracking-wider mb-1">Inactive</div>
-            <div class="text-xl font-bold text-gray-900">{{ inactiveCount }}</div>
+          <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-xl p-3 border border-gray-200 dark:border-gray-600">
+            <div class="text-xs text-gray-600 dark:text-gray-400 font-semibold uppercase tracking-wider mb-1">Inactive</div>
+            <div class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ inactiveCount }}</div>
           </div>
-          <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-3 border border-purple-200">
-            <div class="text-xs text-purple-600 font-semibold uppercase tracking-wider mb-1">Next</div>
-            <div class="text-xl font-bold text-gray-900">{{ lotSizes.length + 1 }}</div>
+          <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30 rounded-xl p-3 border border-purple-200 dark:border-purple-700">
+            <div class="text-xs text-purple-600 dark:text-purple-400 font-semibold uppercase tracking-wider mb-1">Next</div>
+            <div class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ lotSizes.length + 1 }}</div>
           </div>
         </div>
       </div>
