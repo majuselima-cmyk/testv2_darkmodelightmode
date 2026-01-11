@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 min-h-screen">
+  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
       <!-- Header -->
       <header class="mb-4 sm:mb-6">
@@ -22,11 +22,12 @@
               <p class="text-xs sm:text-sm text-gray-600">
                 Analisis Streak Loss v10 (S1 - SX) - Account: <span class="font-mono font-semibold">{{ account }}</span> | Tanggal (UTC): <span class="font-semibold">{{ filterDate }}</span>
               </p>
-              <div class="bg-white border border-gray-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-600 shadow-sm">
-                <div class="font-semibold text-gray-800 mb-1">Info Waktu</div>
+              <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-600 dark:text-gray-400 shadow-sm">
+                <div class="font-semibold text-gray-800 dark:text-gray-200 mb-1">Info Waktu</div>
                 <div>Hari UTC: <span class="font-mono">{{ filterDate }}</span></div>
                 <div>Rentang: 00:00:00 - 23:59:59 UTC</div>
               </div>
+              <ThemeToggle />
             </div>
             <p class="text-[11px] sm:text-xs text-gray-500 max-w-2xl">
               Streak dihitung per schedule berdasarkan <span class="font-semibold">trade berurutan yang rugi (profit &lt; 0)</span>.

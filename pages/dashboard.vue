@@ -32,12 +32,12 @@
         <div class="stat-card rounded-xl p-4 shadow-sm fade-in">
           <div class="flex items-center justify-between">
             <div>
-              <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1">EA Status</div>
-              <div class="text-2xl font-bold text-gray-900">
+              <div class="text-xs text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-wider mb-1">EA Status</div>
+              <div class="text-2xl font-bold text-gray-900 dark:text-gray-100">
                 <span v-if="eaStatus === 'ON'" class="text-green-600 bg-green-100 px-3 py-1 rounded-lg">ON</span>
                 <span v-else-if="eaStatus === 'OFF'" class="text-red-600 bg-red-100 px-3 py-1 rounded-lg">OFF</span>
                 <span v-else-if="eaStatus === 'Error'" class="text-orange-600 bg-orange-100 px-3 py-1 rounded-lg">Error</span>
-                <span v-else class="text-gray-500">Loading...</span>
+                <span v-else class="text-gray-500 dark:text-gray-400">Loading...</span>
               </div>
             </div>
             <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-md">
@@ -48,8 +48,8 @@
         <div class="stat-card rounded-xl p-4 shadow-sm fade-in">
           <div class="flex items-center justify-between">
             <div>
-              <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1">Total Schedules</div>
-              <div class="text-2xl font-bold text-gray-900">10</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400 font-semibold uppercase tracking-wider mb-1">Total Schedules</div>
+              <div class="text-2xl font-bold text-gray-900 dark:text-gray-100">10</div>
             </div>
             <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-md">
               <i class="fas fa-calendar-alt text-white text-lg"></i>
@@ -59,15 +59,15 @@
       </div>
 
       <!-- Error Message Alert -->
-      <div v-if="errorMessage" class="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6 rounded-r-lg">
+      <div v-if="errorMessage" class="bg-orange-50 dark:bg-orange-900/20 border-l-4 border-orange-500 dark:border-orange-400 p-4 mb-6 rounded-r-lg">
         <div class="flex items-start">
           <div class="flex-shrink-0">
-            <i class="fas fa-exclamation-triangle text-orange-500"></i>
+            <i class="fas fa-exclamation-triangle text-orange-500 dark:text-orange-400"></i>
           </div>
           <div class="ml-3 flex-1">
-            <h3 class="text-sm font-semibold text-orange-800 mb-1">Configuration Error</h3>
-            <p class="text-sm text-orange-700">{{ errorMessage }}</p>
-            <div class="mt-2 text-xs text-orange-600">
+            <h3 class="text-sm font-semibold text-orange-800 dark:text-orange-300 mb-1">Configuration Error</h3>
+            <p class="text-sm text-orange-700 dark:text-orange-300">{{ errorMessage }}</p>
+            <div class="mt-2 text-xs text-orange-600 dark:text-orange-400">
               <p><strong>Quick Fix:</strong></p>
               <ol class="list-decimal list-inside ml-2 space-y-1">
                 <li>Go to Vercel Dashboard → Your Project → Settings → Environment Variables</li>
@@ -80,9 +80,9 @@
       </div>
 
       <!-- Schedule Status -->
-      <div class="bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 p-5 shadow-lg mb-6">
+      <div class="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 p-5 shadow-lg mb-6">
         <div class="flex items-center justify-between mb-4">
-          <h2 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+          <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2">
             <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
               <i class="fas fa-calendar-alt text-white text-xs"></i>
             </div>
@@ -93,157 +93,157 @@
           </button>
         </div>
         <div class="flex flex-wrap gap-2">
-          <div v-for="sched in schedules" :key="sched" class="bg-gradient-to-br from-gray-50 to-white rounded-lg border border-gray-200 px-3 py-2 flex items-center gap-2 shadow-sm">
-            <div class="text-xs text-gray-600 font-semibold">{{ sched }}:</div>
-            <div class="text-xs font-bold text-gray-900">
+          <div v-for="sched in schedules" :key="sched" class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 px-3 py-2 flex items-center gap-2 shadow-sm">
+            <div class="text-xs text-gray-600 dark:text-gray-300 font-semibold">{{ sched }}:</div>
+            <div class="text-xs font-bold text-gray-900 dark:text-gray-100">
               <span v-if="scheduleStatus[sched]" :class="scheduleStatus[sched] === 'ON' ? 'text-green-600' : 'text-red-600'">
                 {{ scheduleStatus[sched] }}
               </span>
-              <span v-else class="text-gray-400">Loading...</span>
+              <span v-else class="text-gray-400 dark:text-gray-500">Loading...</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Main Menu -->
-      <div class="bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 p-6 shadow-lg mb-6">
-        <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+      <div class="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 p-6 shadow-lg mb-6">
+        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
           <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
             <i class="fas fa-th-large text-white text-xs"></i>
           </div>
           Main Menu
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-4">
-          <NuxtLink to="/view-lot" class="card-hover bg-gradient-to-br from-white to-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm group">
+          <NuxtLink to="/view-lot" class="card-hover bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-5 border border-gray-200 dark:border-gray-600 shadow-sm group">
             <div class="flex items-start justify-between mb-3">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                 <i class="fas fa-coins text-white text-lg"></i>
               </div>
             </div>
             <div>
-              <h3 class="text-base font-bold text-gray-900 mb-1">Lot Management</h3>
-              <p class="text-gray-600 text-sm">Kelola lot size & tracking</p>
+              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">Lot Management</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">Kelola lot size & tracking</p>
             </div>
           </NuxtLink>
 
-          <NuxtLink to="/admin-lot-sizes" class="card-hover bg-gradient-to-br from-white to-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm group">
+          <NuxtLink to="/admin-lot-sizes" class="card-hover bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-5 border border-gray-200 dark:border-gray-600 shadow-sm group">
             <div class="flex items-start justify-between mb-3">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                 <i class="fas fa-sliders-h text-white text-lg"></i>
               </div>
             </div>
             <div>
-              <h3 class="text-base font-bold text-gray-900 mb-1">Admin Lot Sizes</h3>
-              <p class="text-gray-600 text-sm">Kelola lot sizes (CRUD)</p>
+              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">Admin Lot Sizes</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">Kelola lot sizes (CRUD)</p>
             </div>
           </NuxtLink>
 
-          <NuxtLink :to="`/pendapatan?account=${defaultAccount}`" class="card-hover bg-gradient-to-br from-white to-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm group">
+          <NuxtLink :to="`/pendapatan?account=${defaultAccount}`" class="card-hover bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-5 border border-gray-200 dark:border-gray-600 shadow-sm group">
             <div class="flex items-start justify-between mb-3">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                 <i class="fas fa-chart-line text-white text-lg"></i>
               </div>
             </div>
             <div>
-              <h3 class="text-base font-bold text-gray-900 mb-1">Pendapatan</h3>
-              <p class="text-gray-600 text-sm">Grafik pendapatan harian</p>
+              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">Pendapatan</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">Grafik pendapatan harian</p>
             </div>
           </NuxtLink>
 
-          <NuxtLink to="/control-dashboard" class="card-hover bg-gradient-to-br from-white to-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm group">
+          <NuxtLink to="/control-dashboard" class="card-hover bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-5 border border-gray-200 dark:border-gray-600 shadow-sm group">
             <div class="flex items-start justify-between mb-3">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                 <i class="fas fa-toggle-on text-white text-lg"></i>
               </div>
             </div>
             <div>
-              <h3 class="text-base font-bold text-gray-900 mb-1">EA Control</h3>
-              <p class="text-gray-600 text-sm">Kontrol ON/OFF EA</p>
+              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">EA Control</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">Kontrol ON/OFF EA</p>
             </div>
           </NuxtLink>
 
-          <NuxtLink :to="`/history-report?account=${defaultAccount}&date=${new Date().toISOString().split('T')[0]}`" class="card-hover bg-gradient-to-br from-white to-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm group">
+          <NuxtLink :to="`/history-report?account=${defaultAccount}&date=${new Date().toISOString().split('T')[0]}`" class="card-hover bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-5 border border-gray-200 dark:border-gray-600 shadow-sm group">
             <div class="flex items-start justify-between mb-3">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                 <i class="fas fa-history text-white text-lg"></i>
               </div>
             </div>
             <div>
-              <h3 class="text-base font-bold text-gray-900 mb-1">History Report</h3>
-              <p class="text-gray-600 text-sm">Laporan history trading</p>
+              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">History Report</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">Laporan history trading</p>
             </div>
           </NuxtLink>
 
-          <NuxtLink :to="`/streak-report?account=${defaultAccount}&date=${new Date().toISOString().split('T')[0]}`" class="card-hover bg-gradient-to-br from-white to-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm group">
+          <NuxtLink :to="`/streak-report?account=${defaultAccount}&date=${new Date().toISOString().split('T')[0]}`" class="card-hover bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-5 border border-gray-200 dark:border-gray-600 shadow-sm group">
             <div class="flex items-start justify-between mb-3">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                 <i class="fas fa-chart-bar text-white text-lg"></i>
               </div>
             </div>
             <div>
-              <h3 class="text-base font-bold text-gray-900 mb-1">Streak Report</h3>
-              <p class="text-gray-600 text-sm">Analisis streak loss</p>
+              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">Streak Report</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">Analisis streak loss</p>
             </div>
           </NuxtLink>
 
-          <a :href="`/api/sinyal?token=${apiToken}&account=${defaultAccount}`" target="_blank" class="card-hover bg-gradient-to-br from-white to-gray-50 rounded-xl p-5 border border-gray-200 shadow-sm group">
+          <a :href="`/api/sinyal?token=${apiToken}&account=${defaultAccount}`" target="_blank" class="card-hover bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-5 border border-gray-200 dark:border-gray-600 shadow-sm group">
             <div class="flex items-start justify-between mb-3">
               <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                 <i class="fas fa-signal text-white text-lg"></i>
               </div>
             </div>
             <div>
-              <h3 class="text-base font-bold text-gray-900 mb-1">Signal API</h3>
-              <p class="text-gray-600 text-sm">Generate sinyal trading</p>
+              <h3 class="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">Signal API</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">Generate sinyal trading</p>
             </div>
           </a>
         </div>
       </div>
 
       <!-- API Endpoints & System Info -->
-      <div class="bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 p-6 shadow-lg">
+      <div class="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 p-6 shadow-lg">
         <details class="cursor-pointer">
-          <summary class="text-lg font-bold text-gray-900 flex items-center gap-2 mb-4 cursor-pointer list-none hover:text-gray-700 transition-colors">
+          <summary class="text-lg font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2 mb-4 cursor-pointer list-none hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
             <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-gray-500 to-gray-600 flex items-center justify-center">
               <i class="fas fa-code text-white text-xs"></i>
             </div>
             <span class="flex-1">API Endpoints & System Info v10</span>
-            <i class="fas fa-chevron-down text-gray-400 text-xs transition-transform details-chevron"></i>
+            <i class="fas fa-chevron-down text-gray-400 dark:text-gray-500 text-xs transition-transform details-chevron"></i>
           </summary>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 pt-4 border-t border-gray-200">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
             <div>
-              <div class="text-sm font-semibold text-gray-700 mb-3">API Endpoints</div>
+              <div class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">API Endpoints</div>
               <div class="space-y-3">
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs font-semibold text-gray-900 mb-1">Signal</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs font-semibold text-gray-900 dark:text-gray-100 mb-1">Signal</div>
                   <a :href="`/api/sinyal?token=${apiToken}&account=${defaultAccount}`" target="_blank" class="text-xs text-blue-600 hover:text-blue-800 font-mono break-all underline">
                     /api/sinyal
                   </a>
                 </div>
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs font-semibold text-gray-900 mb-1">Lot</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs font-semibold text-gray-900 dark:text-gray-100 mb-1">Lot</div>
                   <a :href="`/api/lot?token=${apiToken}&account=${defaultAccount}&schedule=S1`" target="_blank" class="text-xs text-blue-600 hover:text-blue-800 font-mono break-all underline">
                     /api/lot
                   </a>
                 </div>
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs font-semibold text-gray-900 mb-1">Control</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs font-semibold text-gray-900 dark:text-gray-100 mb-1">Control</div>
                   <a :href="`/api/control?token=${apiToken}&account=${defaultAccount}&action=get`" target="_blank" class="text-xs text-blue-600 hover:text-blue-800 font-mono break-all underline">
                     /api/control
                   </a>
                 </div>
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs font-semibold text-gray-900 mb-1">History API</div>
-                  <div class="text-xs text-gray-600 font-mono">/api/history (POST)</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs font-semibold text-gray-900 dark:text-gray-100 mb-1">History API</div>
+                  <div class="text-xs text-gray-600 dark:text-gray-400 font-mono">/api/history (POST)</div>
                 </div>
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs font-semibold text-gray-900 mb-1">History Report</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs font-semibold text-gray-900 dark:text-gray-100 mb-1">History Report</div>
                   <a :href="`/history-report?account=${defaultAccount}&date=${new Date().toISOString().split('T')[0]}`" target="_blank" class="text-xs text-blue-600 hover:text-blue-800 font-mono break-all underline">
                     /history-report
                   </a>
                 </div>
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs font-semibold text-gray-900 mb-1">Streak Report</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs font-semibold text-gray-900 dark:text-gray-100 mb-1">Streak Report</div>
                   <a :href="`/streak-report?account=${defaultAccount}&date=${new Date().toISOString().split('T')[0]}`" target="_blank" class="text-xs text-blue-600 hover:text-blue-800 font-mono break-all underline">
                     /streak-report
                   </a>
@@ -251,27 +251,27 @@
               </div>
             </div>
             <div>
-              <div class="text-sm font-semibold text-gray-700 mb-3">System Info</div>
+              <div class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">System Info</div>
               <div class="space-y-2">
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs text-gray-500 mb-1">Database</div>
-                  <div class="text-sm font-bold text-gray-900">Supabase PostgreSQL</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Database</div>
+                  <div class="text-sm font-bold text-gray-900 dark:text-gray-100">Supabase PostgreSQL</div>
                 </div>
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs text-gray-500 mb-1">Schedules</div>
-                  <div class="text-sm font-bold text-gray-900">S1-S9, SX</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Schedules</div>
+                  <div class="text-sm font-bold text-gray-900 dark:text-gray-100">S1-S9, SX</div>
                 </div>
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs text-gray-500 mb-1">Entries</div>
-                  <div class="text-sm font-bold text-gray-900">40 per schedule, 30 min interval</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Entries</div>
+                  <div class="text-sm font-bold text-gray-900 dark:text-gray-100">40 per schedule, 30 min interval</div>
                 </div>
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs text-gray-500 mb-1">Type</div>
-                  <div class="text-sm font-bold text-gray-900">Type B (BuyStop/SellStop)</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Type</div>
+                  <div class="text-sm font-bold text-gray-900 dark:text-gray-100">Type B (BuyStop/SellStop)</div>
                 </div>
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-lg p-3 border border-gray-200">
-                  <div class="text-xs text-gray-500 mb-1">Framework</div>
-                  <div class="text-sm font-bold text-gray-900">Nuxt 3 + Supabase</div>
+                <div class="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600">
+                  <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">Framework</div>
+                  <div class="text-sm font-bold text-gray-900 dark:text-gray-100">Nuxt 3 + Supabase</div>
                 </div>
               </div>
             </div>
@@ -281,9 +281,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200/50 mt-8">
+    <footer class="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-t border-gray-200/50 dark:border-gray-700/50 mt-8">
       <div class="max-w-6xl mx-auto px-4 py-4">
-        <div class="text-center text-sm text-gray-600">
+        <div class="text-center text-sm text-gray-600 dark:text-gray-400">
           <p>© 2025 Trading Dashboard v10 - Multi Schedule (S1-S9, SX)</p>
         </div>
       </div>

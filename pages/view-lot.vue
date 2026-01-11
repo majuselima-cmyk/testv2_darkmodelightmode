@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 min-h-screen">
+  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-200">
     <!-- Header -->
     <header class="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 shadow-lg p-3 sm:p-5 mb-4 sm:mb-6 max-w-7xl mx-auto px-3 sm:px-4 mt-4 sm:mt-6">
       <div class="flex flex-col gap-3">
@@ -24,9 +24,10 @@
             <button @click="loadData" class="bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all shadow-md">
               <i class="fas fa-sync-alt text-xs" :class="{ 'fa-spin': loading }"></i> Refresh
             </button>
-            <div class="text-xs sm:text-sm text-gray-600 bg-gradient-to-br from-gray-50 to-white px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl border border-gray-200 shadow-sm">
+            <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl border border-gray-200 dark:border-gray-600 shadow-sm">
               <i class="far fa-clock text-xs"></i> <span class="ml-1 font-semibold">{{ currentTime }}</span>
             </div>
+            <ThemeToggle />
           </div>
         </div>
       </div>

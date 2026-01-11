@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 min-h-screen">
+  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
       <!-- Header -->
       <div class="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 shadow-lg p-3 sm:p-5 mb-4 sm:mb-6">
@@ -21,7 +21,7 @@
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
             <p class="text-xs sm:text-sm text-gray-600">Grafik pendapatan harian dari trading</p>
             <div class="flex items-center gap-2 sm:gap-3">
-              <select v-model="days" @change="loadData" class="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-xs sm:text-sm font-semibold text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+              <select v-model="days" @change="loadData" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1.5 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500">
                 <option :value="7">7 Hari</option>
                 <option :value="14">14 Hari</option>
                 <option :value="30">30 Hari</option>
@@ -31,9 +31,10 @@
               <button @click="loadData" class="bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all shadow-md">
                 <i class="fas fa-sync-alt text-xs" :class="{ 'fa-spin': loading }"></i> Refresh
               </button>
-              <div class="text-xs sm:text-sm text-gray-600 bg-gradient-to-br from-gray-50 to-white px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl border border-gray-200 shadow-sm">
+              <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl border border-gray-200 dark:border-gray-600 shadow-sm">
                 <i class="far fa-clock text-xs"></i> <span class="ml-1 font-semibold">{{ lastUpdate }}</span>
               </div>
+              <ThemeToggle />
             </div>
           </div>
         </div>

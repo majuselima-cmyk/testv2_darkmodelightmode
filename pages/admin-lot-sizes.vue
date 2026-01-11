@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 min-h-screen">
+  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-4 py-6">
       <!-- Header -->
       <div class="bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg p-5 mb-6">
@@ -26,6 +26,7 @@
             <button @click="logout" class="bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 px-4 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm flex items-center gap-2">
               <i class="fas fa-sign-out-alt text-xs"></i> Logout
             </button>
+            <ThemeToggle />
           </div>
         </div>
 

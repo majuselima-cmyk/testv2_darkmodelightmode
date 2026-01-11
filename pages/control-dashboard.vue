@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 min-h-screen">
+  <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-4 py-6">
       <!-- Header -->
       <div class="bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg p-5 mb-6">
@@ -22,9 +22,10 @@
             <button @click="refreshStatus" class="bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 transition-all shadow-md">
               <i class="fas fa-sync-alt text-xs" :class="{ 'fa-spin': loading }"></i> Refresh
             </button>
-            <div class="text-sm text-gray-600 bg-gradient-to-br from-gray-50 to-white px-3 py-2 rounded-xl border border-gray-200 shadow-sm">
+            <div class="text-sm text-gray-600 dark:text-gray-400 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-600 shadow-sm">
               <i class="far fa-clock text-xs"></i> <span class="ml-1 font-semibold">{{ lastUpdate }}</span>
             </div>
+            <ThemeToggle />
           </div>
         </div>
       </div>
