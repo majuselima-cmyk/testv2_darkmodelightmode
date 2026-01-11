@@ -1,23 +1,23 @@
 <template>
   <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-200">
     <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 shadow-lg p-3 sm:p-5 mb-4 sm:mb-6 max-w-7xl mx-auto px-3 sm:px-4 mt-4 sm:mt-6">
+    <header class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg p-3 sm:p-5 mb-4 sm:mb-6 max-w-7xl mx-auto px-3 sm:px-4 mt-4 sm:mt-6">
       <div class="flex flex-col gap-3">
         <div class="flex items-center gap-2 sm:gap-4">
-          <NuxtLink to="/dashboard" class="bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all shadow-sm">
+            <NuxtLink to="/dashboard" class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 text-gray-700 dark:text-gray-200 px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all shadow-sm">
             <i class="fas fa-arrow-left text-xs"></i> Back
           </NuxtLink>
           <div class="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center shadow-md">
               <i class="fas fa-coins text-white text-xs sm:text-sm"></i>
             </div>
-            <h1 class="text-lg sm:text-2xl font-bold text-black truncate">
+            <h1 class="text-lg sm:text-2xl font-bold text-black dark:text-white truncate">
               Lot Management
             </h1>
           </div>
         </div>
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
-          <p class="text-xs sm:text-sm text-gray-600">
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
             Monitoring lot aktif per schedule (S1 - S9, SX) - Account: {{ defaultAccount }}
           </p>
           <div class="flex items-center gap-2 sm:gap-3">
@@ -39,7 +39,7 @@
         <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 mb-4">
           <i class="fas fa-spinner fa-spin text-2xl text-white"></i>
         </div>
-        <p class="text-gray-600 text-sm font-medium">Memuat data...</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm font-medium">Memuat data...</p>
       </div>
 
       <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4">
@@ -48,12 +48,12 @@
           <div :class="getScheduleCardClass(schedule)" class="card-modern border-2 rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-sm">
             <div class="flex items-center justify-between mb-2 sm:mb-3">
               <div class="flex items-center gap-2">
-                <div :class="getScheduleIconClass(schedule)" class="bg-white rounded-full p-1.5 sm:p-2">
+                <div :class="getScheduleIconClass(schedule)" class="bg-white dark:bg-gray-800 rounded-full p-1.5 sm:p-2">
                   <i class="fas fa-calendar-alt text-xs sm:text-sm"></i>
                 </div>
                 <div>
                   <h3 :class="getScheduleTextClass(schedule)" class="text-sm sm:text-base font-bold">{{ schedule }}</h3>
-                  <p class="text-xs text-gray-600">Schedule {{ schedule }}</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">Schedule {{ schedule }}</p>
                 </div>
               </div>
               <div class="flex items-center">
@@ -66,21 +66,21 @@
 
             <div class="space-y-2 sm:space-y-3">
               <!-- Lot Aktif -->
-              <div class="bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 border border-gray-200">
+              <div class="bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl p-2 sm:p-3 border border-gray-200 dark:border-gray-700">
                 <div class="flex items-center justify-between">
-                  <span class="text-gray-600 text-xs sm:text-sm font-semibold">Lot Aktif</span>
+                  <span class="text-gray-600 dark:text-gray-400 text-xs sm:text-sm font-semibold">Lot Aktif</span>
                   <span :class="getScheduleTextClass(schedule)" class="text-base sm:text-lg font-bold">
                     {{ getActiveLot(schedule) }}
                   </span>
                 </div>
                 <div class="mt-1.5 sm:mt-2 space-y-1">
-                  <div class="flex items-center gap-1.5 text-xs text-gray-500">
+                  <div class="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
                     <i class="fas fa-layer-group text-xs"></i>
                     <span>Index: {{ getLotIndex(schedule) }}</span>
                   </div>
                   <div v-if="getLastLotUsed(schedule)" class="flex items-center gap-1.5 text-xs text-gray-500 border-t border-gray-100 pt-1">
                     <i class="fas fa-history text-xs"></i>
-                    <span>Lot Terakhir: <span class="font-semibold text-gray-700">{{ getLastLotUsed(schedule) }}</span></span>
+                    <span>Lot Terakhir: <span class="font-semibold text-gray-700 dark:text-gray-300">{{ getLastLotUsed(schedule) }}</span></span>
                   </div>
                   <div v-if="getStreakLoss(schedule) > 0" class="flex items-center gap-1.5 text-xs text-red-600 border-t border-gray-100 pt-1">
                     <i class="fas fa-fire text-xs"></i>
@@ -91,17 +91,17 @@
 
               <!-- Stats Grid -->
               <div class="grid grid-cols-2 gap-2">
-                <div class="bg-white rounded-lg p-2 border border-gray-200">
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-2 border border-gray-200 dark:border-gray-700">
                   <div class="flex items-center gap-1.5 mb-1">
                     <i class="fas fa-chart-bar text-gray-400 text-xs"></i>
-                    <span class="text-xs text-gray-600">Total</span>
+                    <span class="text-xs text-gray-600 dark:text-gray-400">Total</span>
                   </div>
-                  <p class="text-xs sm:text-sm font-semibold text-gray-800">{{ getTotalTrades(schedule) }}</p>
+                  <p class="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200">{{ getTotalTrades(schedule) }}</p>
                 </div>
-                  <div class="bg-white rounded-lg p-2 border border-gray-200">
+                  <div class="bg-white dark:bg-gray-800 rounded-lg p-2 border border-gray-200 dark:border-gray-700">
                     <div class="flex items-center gap-1.5 mb-1">
                       <i :class="[getProfitIcon(schedule), getProfitClass(schedule), 'text-xs']"></i>
-                      <span class="text-xs text-gray-600">Last Profit</span>
+                      <span class="text-xs text-gray-600 dark:text-gray-400">Last Profit</span>
                     </div>
                     <p :class="getProfitClass(schedule)" class="text-xs sm:text-sm font-semibold">
                       {{ formatProfit(getLastProfit(schedule)) }}
@@ -113,9 +113,9 @@
               <div v-if="getLastTicket(schedule)" class="bg-white rounded-lg p-2 border border-gray-200">
                 <div class="flex items-center gap-1.5 mb-1">
                   <i class="fas fa-ticket-alt text-gray-400 text-xs"></i>
-                  <span class="text-xs text-gray-600">Last Ticket</span>
+                  <span class="text-xs text-gray-600 dark:text-gray-400">Last Ticket</span>
                 </div>
-                <p class="text-xs font-mono text-gray-800">{{ getLastTicket(schedule) }}</p>
+                <p class="text-xs font-mono text-gray-800 dark:text-gray-200">{{ getLastTicket(schedule) }}</p>
               </div>
             </div>
           </div>
@@ -369,6 +369,11 @@ onMounted(() => {
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border: 1px solid rgba(226, 232, 240, 0.8);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .card-modern {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border: 1px solid rgba(55, 65, 81, 0.8);
 }
 
 .card-modern:hover {
