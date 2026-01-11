@@ -2,32 +2,32 @@
   <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
       <!-- Header -->
-      <div class="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 shadow-lg p-3 sm:p-5 mb-4 sm:mb-6 no-print">
+      <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg p-3 sm:p-5 mb-4 sm:mb-6 no-print">
         <div class="flex flex-col gap-3">
           <div class="flex items-center gap-2 sm:gap-4">
-            <NuxtLink to="/dashboard" class="bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all shadow-sm">
+            <NuxtLink to="/dashboard" class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 text-gray-700 dark:text-gray-200 px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all shadow-sm">
               <i class="fas fa-arrow-left text-xs"></i> Back
             </NuxtLink>
             <div class="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
               <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-md">
                 <i class="fas fa-history text-white text-xs sm:text-sm"></i>
               </div>
-              <h1 class="text-lg sm:text-2xl font-bold text-black truncate">
+              <h1 class="text-lg sm:text-2xl font-bold text-black dark:text-white truncate">
                 History Report
               </h1>
             </div>
           </div>
           
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
-            <p class="text-xs sm:text-sm text-gray-600">Trading History Report v10</p>
+            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Trading History Report v10</p>
             <div class="flex items-center gap-2 sm:gap-3">
               <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl px-3 sm:px-4 py-2 sm:py-3 border border-blue-200 shadow-sm">
-                <div class="text-xs text-gray-600 mb-1 font-semibold">Clock</div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">
-                  <span class="text-blue-600">{{ timeUTC }}</span> <span class="text-gray-500 text-xs">UTC</span>
+                <div class="text-xs text-gray-600 dark:text-gray-400 mb-1 font-semibold">Clock</div>
+                <div class="text-xs sm:text-sm font-bold text-gray-900 dark:text-gray-100">
+                  <span class="text-blue-600">{{ timeUTC }}</span> <span class="text-gray-500 dark:text-gray-400 text-xs">UTC</span>
                 </div>
-                <div class="text-xs sm:text-sm font-bold text-gray-900">
-                  <span class="text-green-600">{{ timeWIB }}</span> <span class="text-gray-500 text-xs">WIB</span>
+                <div class="text-xs sm:text-sm font-bold text-gray-900 dark:text-gray-100">
+                  <span class="text-green-600">{{ timeWIB }}</span> <span class="text-gray-500 dark:text-gray-400 text-xs">WIB</span>
                 </div>
               </div>
               <button @click="window.print()" class="bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-3 sm:px-4 py-2 sm:py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5 sm:gap-2 transition-all shadow-md no-print">
@@ -40,14 +40,14 @@
       </div>
 
       <!-- Date Filter -->
-      <div class="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 shadow-lg p-3 sm:p-5 mb-4 sm:mb-6 no-print">
+      <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg p-3 sm:p-5 mb-4 sm:mb-6 no-print">
         <form @submit.prevent="loadData" class="flex flex-wrap items-end gap-3">
           <div class="flex-1 min-w-[150px]">
-            <label class="block text-xs font-semibold text-gray-700 mb-2">Account</label>
+            <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">Account</label>
             <input 
               v-model="account" 
               type="text" 
-              class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all font-mono"
+              class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all font-mono"
               placeholder="Account number"
             >
           </div>
@@ -56,14 +56,14 @@
             <input 
               v-model="filterDate" 
               type="date" 
-              class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
+              class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
             >
           </div>
           <div class="min-w-[150px]">
             <label class="block text-xs font-semibold text-gray-700 mb-2">Schedule</label>
             <select 
               v-model="filterSchedule" 
-              class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
+              class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-xl text-xs sm:text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
             >
               <option value="">Semua</option>
               <option value="S1">S1</option>
@@ -88,13 +88,13 @@
             <button 
               type="button"
               @click="setToday"
-              class="bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 px-3 sm:px-4 py-2 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all shadow-sm"
+              class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 text-gray-700 dark:text-gray-200 px-3 sm:px-4 py-2 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all shadow-sm"
             >
               <i class="fas fa-calendar-day text-xs"></i> Hari Ini
             </button>
           </div>
         </form>
-        <div class="mt-3 text-xs text-gray-600 flex items-center gap-2">
+        <div class="mt-3 text-xs text-gray-600 dark:text-gray-400 flex items-center gap-2">
           <i class="fas fa-info-circle text-purple-500"></i>
           Filter UTC | 15 data/halaman
         </div>

@@ -2,21 +2,21 @@
   <div class="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-4 py-6">
       <!-- Header -->
-      <div class="bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-lg p-5 mb-6">
+      <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg p-5 mb-6">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-3">
           <div class="flex-1">
             <div class="flex flex-wrap items-center gap-4 mb-3">
-              <NuxtLink to="/dashboard" class="bg-gradient-to-br from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 transition-all shadow-sm">
+              <NuxtLink to="/dashboard" class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 transition-all shadow-sm">
                 <i class="fas fa-arrow-left text-xs"></i> Back
               </NuxtLink>
-              <h1 class="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent flex items-center gap-3">
+              <h1 class="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-md">
                   <i class="fas fa-toggle-on text-white text-sm"></i>
                 </div>
                 EA Control Dashboard
               </h1>
             </div>
-            <p class="text-sm text-gray-600">Kontrol ON/OFF EA Trading - Multi Schedule v10 (S1 - S9, SX)</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Kontrol ON/OFF EA Trading - Multi Schedule v10 (S1 - S9, SX)</p>
           </div>
           <div class="flex items-center gap-3">
             <button @click="refreshStatus" class="bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 transition-all shadow-md">
@@ -35,7 +35,7 @@
         <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 mb-4">
           <i class="fas fa-spinner fa-spin text-2xl text-white"></i>
         </div>
-        <p class="text-gray-600 text-sm font-medium">Memuat status...</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm font-medium">Memuat status...</p>
       </div>
 
       <!-- Error State -->
@@ -54,7 +54,7 @@
       <!-- Main Card -->
       <div v-if="!loading || eaStatus">
         <!-- Global Status Card -->
-        <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xl mb-6">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-xl mb-6">
           <div :class="isOn ? 'bg-gradient-to-br from-green-600 to-green-700' : 'bg-gradient-to-br from-red-600 to-red-700'" class="p-6 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -mr-16 -mt-16"></div>
             <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/20 rounded-full -ml-12 -mb-12"></div>
@@ -76,7 +76,7 @@
               </div>
             </div>
           </div>
-          <div class="p-4 bg-gradient-to-br from-gray-50 to-white">
+          <div class="p-4 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700">
             <div class="flex flex-col sm:flex-row gap-3">
               <button @click="setStatus('ON')" :disabled="isOn" 
                       :class="[
@@ -98,7 +98,7 @@
 
         <!-- Schedule Cards Grid -->
         <div class="schedule-grid grid gap-4 mb-6">
-          <div v-for="schedule in schedules" :key="schedule.id" :class="getScheduleCardClass(schedule)" class="schedule-card bg-white rounded-xl border-2 overflow-hidden shadow-md transition-all">
+          <div v-for="schedule in schedules" :key="schedule.id" :class="getScheduleCardClass(schedule)" class="schedule-card bg-white dark:bg-gray-800 rounded-xl border-2 dark:border-gray-700 overflow-hidden shadow-md transition-all">
             <div :class="schedule.isEnabled ? schedule.color.bg : 'bg-gradient-to-br from-red-500 to-red-600'" class="p-4">
               <div class="flex items-center justify-between mb-2">
                 <div class="flex items-center gap-2">
@@ -119,7 +119,7 @@
               </div>
               <div class="text-xs text-white/90 font-medium mt-2">40 entries per schedule</div>
             </div>
-            <div class="p-4 space-y-3 bg-gradient-to-br from-white to-gray-50">
+            <div class="p-4 space-y-3 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700">
               <div class="flex gap-2">
                 <button @click="setScheduleStatus(schedule.id, 'ON')" 
                         :disabled="schedule.isEnabled"
@@ -143,8 +143,8 @@
         </div>
 
         <!-- Quick Actions -->
-        <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-5 shadow-lg mb-6">
-          <h4 class="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <div class="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-5 shadow-lg mb-6">
+          <h4 class="text-base font-bold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
             <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center">
               <i class="fas fa-bolt text-white text-sm"></i>
             </div>
@@ -161,16 +161,16 @@
         </div>
 
         <!-- Info Section -->
-        <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-5 shadow-lg">
+        <div class="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-5 shadow-lg">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-4 border border-gray-200">
               <div class="flex items-center gap-2 mb-2">
                 <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center">
                   <i class="fas fa-calendar-alt text-blue-600 text-sm"></i>
                 </div>
-                <span class="text-xs font-semibold text-gray-700">Last Updated</span>
+                <span class="text-xs font-semibold text-gray-700 dark:text-gray-300">Last Updated</span>
               </div>
-              <p class="text-sm font-bold text-gray-900 break-words">{{ updatedAt }}</p>
+              <p class="text-sm font-bold text-gray-900 dark:text-gray-100 break-words">{{ updatedAt }}</p>
             </div>
           </div>
 
